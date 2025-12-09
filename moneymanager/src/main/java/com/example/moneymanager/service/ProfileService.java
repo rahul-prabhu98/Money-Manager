@@ -63,4 +63,10 @@ public class ProfileService {
                 })
                 .orElse(false);
     }
+
+    public boolean isAccountActive(String email){
+        return profileRepository.findByEmail(email)
+                .map(ProfileEntity::getIsActive)
+                .orElse(false);
+    }
 }
